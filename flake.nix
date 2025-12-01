@@ -291,7 +291,7 @@
     '';
     # If you want to do something a bit more custom
     inherit runScriptPrefix;
-    devShell.x86_64-linux = pkgs.mkShell {
+    devShells.x86_64-linux.default = pkgs.mkShell {
       buildInputs = (guiTargetPkgs pkgs) ++ [
         self.packages.x86_64-linux.xilinx-shell
       ];
@@ -302,7 +302,7 @@
       '';
     };
 
-    defaultPackage.x86_64-linux = self.packages.x86_64-linux.xilinx-shell;
+    packages.x86_64-linux.default = self.packages.x86_64-linux.xilinx-shell;
 
   };
 }
